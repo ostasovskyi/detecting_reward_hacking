@@ -39,7 +39,7 @@ Training dataset of **5,017 benign multi-turn coding-agent trajectories** genera
 
 `huggingface: PatronusAI/trace-dataset`
 
-Evaluation dataset of 517 multi-turn coding-agent trajectories, including 268 hacked and 249 benign examples. Only the binary hacked/benign label is used.
+Evaluation dataset of 517 multi-turn coding-agent trajectories, including **268 hacked and 249 benign syntethic examples**. Only the binary hacked/benign label is used.
 
 #### MALT
 
@@ -47,8 +47,8 @@ Evaluation dataset of 517 multi-turn coding-agent trajectories, including 268 ha
 
 Evaluation dataset of software and research agent transcripts containing naturally occurring reward hacking behavior. It includes:
 
-- 103 manually reviewed hacked runs
-- 1,01* manually reviewed benign runs
+- **103 manually reviewed hacked runs**
+- **1,01 manually reviewed benign runs**
 - 8,229 presumed benign runs
 
 
