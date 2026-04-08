@@ -24,7 +24,7 @@ The goal is to test whether reward hacking can be detected as a deviation from n
 Therefore, we ask if  unsupervised models trained only on benign coding-agent trajectories learn a representation of normal behavior from which reward hacking deviates in a detectable and consistent way. This is evaluated through two questions:
 
 1. Do VAE reconstruction error and KL divergence separate hacked from benign trajectories in TRACE and MALT? Does Deep SVDD provide a better anomaly score than the VAE? 
-2. Do hacked trajectories from TRACE (synthetically generated coding trajectories) and MALT (real-world codind trajectories) occupy similar regions in the learned latent space?
+2. Do hacked trajectories from TRACE (synthetically generated coding trajectories) and MALT (real-world coding trajectories) occupy similar regions in the learned latent space?
 
 
 ## Datasets
