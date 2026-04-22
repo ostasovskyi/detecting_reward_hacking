@@ -1,0 +1,56 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=1in,bottom=1in,left=1in,right=1in,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[authoryear]{natbib}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+
+\title{An Introduction to Reward Hacking}
+\author{Group \#}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{2}
+
+\section{Reward Hacking Overview}
+When training a Machine Learning (ML) model to do a task, one needs to specify a goal that the model can use to judge its progress on the task. Goal specification is very difficult for even very simple-seeming tasks, such as stacking a red block on top of a blue block. If one directs a robotic arm with the goal of placing the bottom face of the red block as high up as possible, the arm instead may learn to simply flip the red block upside down rather than stack it on top of the blue block \citep{specification-gaming}. This is a phenomenon was initially called specification gaming, but is now more commonly known as \emph{reward hacking}. 
+
+Generally, reward hacking occurs when a ML model learns unintended behavior by pursuing a goal that was not specified as precisely as was needed. Notably, nothing in the training goes technically wrong during reward hacking---the model still finds a local minimum in the loss function, and still carries out its objective according to the goal that was specified for it. The error is that the human's objective and the goal's specification are not one and the same. 
+
+Reward hacking can be understood fairly intuitively from a human experience standpoint, and is associated with behaviors that humans would often simply call ``cheating." One example is a grade on a test; what a teacher really wants is for a student to learn the content. Instead of doing this, the student may instead write hidden  notes on their hand with all the answers to last year's test. At the end of the day, this action still results in a good grade, which reinforces the student that this behavior is rewarding, and the student may get better and better at writing covert notes. Of course, this is not what the teacher wanted, but the goal was specified too generically; rather than just ``get a good grade," a better goal might be ``get a good grade without using any outside information." Of course, that's not a very specific instruction either, and hence the difficulty in stopping reward hacking.
+
+\section{Reinforcement Learning}
+One of the main strategies in combating reward hacking is Reinforcement Learning (RL), which is often used in ML models after initial training to induce more wanted behaviors \citep{openai2017}. RL essentially uses the human instinct of ``I'll know it when I see it" to solve problems of reward hacking---it relies on the idea that some tasks are much easier to judge than to specify. For example, wanting a stick figure to perform a backflip may be a very difficult skill to describe, but a human judge can fairly easily distinguish when a stick figure is indeed performing a backflip, and can reward the model accordingly. 
+
+RL certainly helps with the problem of reward hacking, but it can introduce its own problems. \citet{wenetal} found that RL with human feedback tends to make language models much more persuasive than it makes them correct---if a model can \emph{convince} a human of its truthfulness, it need not be actually telling the truth. Also, because human judges are very expensive, RL often uses reward models trained on human behavior instead of human judges themselves \citep{ouyang2022traininglanguagemodelsfollow}. This can lead to even further dilution of the RL objective, as models are necessarily imperfect reproductions of human judges. Also, as tasks get more and more difficult, there will necessarily be a time when human judges are no longer effective in deciding on the correctness of a task. In other words, RL is not the be-all end-all solution to reward hacking. 
+
+\section{Why is Reward Hacking Dangerous?}
+
+Reward hacking in and of itself on small problems is not inherently dangerous. It can be rather more annoying than anything else; a model that cheats on its tests is not one that is particularly helpful. The main problem is how reward hacking generalizes to misalignment. Again, in reward hacking, \emph{the underlying goals of the model are not the same as the underlying goals of the human}. That is, definitionally, misalignment, and can generalize to much more dangerous results. There's evidence supporting the fact that large language models (LLMs) that reward hacking in their training also become misaligned in other ways, learning to fake alignment and cooperate with malicious actors \citep{lesswrong-emergent-rh}. On some level this makes sense, especially if a model is smart enough to realize it is reward hacking---if you learn to cheat on one task and it works, you might as well try cheating on other tasks. 
+
+This world of models being smart enough to be self aware is an especially dangerous one. We now live in a time where models often know they are reward hacking; i.e. they have a general idea of what the human goal is, and they know they are not fulfilling that goal \citep{metr-reward-hack}. This type of apparently ``intentional" misalignment is a precursor to many of the doomsday-type scenarios AI safety researchers are most scared of; in all cases, AI's irreversibly learn goals that are at odds with the goals of the humans that make them, and reward hacking is one step along that chain. But it doesn't take killing all humans for reward hacking to be a problem. AI's deployed in sensitive areas, like the military, or economically vital companies, could cause devastating effects with reward hacking. One need not stretch their imagination to picture a reward hacking military model taking out an unintended, easy target that somehow fulfills underspecified criteria of its human overseer. 
+
+\section{Well\dots Now What?}
+
+Being able to reliably detect reward hacking would make a meaningful difference to these different danger modes. Detecting it in LLM training runs could be a loud alarm bell for stopping the training and reinspecting methods or data. Even further, detecting signs of it in deployment (for example from some trusted classifier model) could avert many deployment-side catastrophes. The consistent detection of reward hacking would represent a significant step forward in the current AI safety capabilities of researchers and labs.
+\end{multicols}
+
+\bibliographystyle{plainnat}
+\bibliography{sample}
+
+\end{document}
