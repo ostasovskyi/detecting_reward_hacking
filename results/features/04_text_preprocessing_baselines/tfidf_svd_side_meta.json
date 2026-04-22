@@ -1,0 +1,21 @@
+{
+  "representation": "tfidf_svd_side",
+  "svd_dim": 128,
+  "vocab_size": 50000,
+  "svd_explained_variance": 0.35997042286137393,
+  "side_features": [
+    "n_turns",
+    "approx_tokens",
+    "user_turns",
+    "assistant_turns",
+    "tool_turns",
+    "system_turns",
+    "bash_calls",
+    "python_calls",
+    "read_calls",
+    "write_calls",
+    "edit_calls",
+    "test_calls",
+    "tool_related_calls"
+  ]
+}
