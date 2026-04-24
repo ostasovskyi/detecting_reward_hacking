@@ -1,0 +1,3 @@
+model,representation,dataset,n,positive_rate,auroc,auprc
+vae,tokpad_512 (sanity check),trace,517,0.5183752417794971,0.4949049931067554,0.5277203846121258
+vae,tokpad_512 (sanity check),malt,756,0.082010582010582,0.34105698614855445,0.0582016279889805
