@@ -2,3 +2,6 @@ data/
 .venv/
 .env
 .env.*
+
+# Large generated feature caches
+results/MS05_full_swe_baselines/features/
